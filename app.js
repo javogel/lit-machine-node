@@ -18,12 +18,34 @@ app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
 
+// Middle-Ware-ing
+var textTransform = function (req, res, next) {
+  var rita = require('rita');
+  var fs = require('fs');
+
+  fs.readFile('app/data/meditations.txt', function(err, data) {
+    if(err) throw err;
+    var array = data.toString().split("\n");
+    // for(i in array) {
+    //     console.log(array[i]);
+    // }
+    var markov = new rita.RiMarkov(3);
+    markov.loadText(array.join(' '));
+    req.variable = markov.generateSentences(50);
+    next()
+  });
+  // eval(pry.it)
+  // var rs = rita.RiString("The elephant took a bite!");
+  // req.variable = rs;
+  // console.log(rs.features());
+}
+
+app.use(textTransform)
 // Routing
 app.get('/', (request, response) => {
-  eval(pry.it)
+  // eval(pry.it)
   response.render('home', {
-    name: 'John',
-    surname: 'Vogel'
+    phrase: request.variable[Math.floor(Math.random() * request.variable.length)]
   })
 })
 
