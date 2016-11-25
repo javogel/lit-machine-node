@@ -1,5 +1,6 @@
 require('./app/index')
 
+const pry = require('pryjs')
 const express = require('express')
 const app = express()
 const port = 3000
@@ -19,10 +20,14 @@ app.set('views', path.join(__dirname, 'views'))
 
 // Routing
 app.get('/', (request, response) => {
+  eval(pry.it)
   response.render('home', {
-    name: 'John'
+    name: 'John',
+    surname: 'Vogel'
   })
 })
+
+
 
 
 // Error catching
