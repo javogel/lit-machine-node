@@ -9,6 +9,7 @@ const port = 3000
 const path = require('path');
 const exphbs = require('express-handlebars');
 
+app.set('port', (process.env.PORT || port))
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
@@ -74,10 +75,11 @@ app.get('/get-lines/:source', getLines, (request, response) => {
 })
 
 // Error catching
-app.listen(port, (err) => {
+
+app.listen(app.get('port'), function(err) {
   if (err) {
     return console.log('something bad happened', err)
   }
 
-  console.log(`server is listening on ${port}`)
+  console.log("Node app is running at:" + app.get('port'))
 })
