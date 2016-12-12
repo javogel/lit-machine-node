@@ -1,5 +1,26 @@
-
+body {
+  background-color: white;
+}
 
 .nav-center{
   text-align: center;
+}
+
+.control-panel {
+  margin: 20px auto 0 auto;
+}
+#logo {
+  color: black;
+  font-family: 'Cardo', serif;
+  margin: 0;
+}
+
+#proposed-text {
+  color: #E5625E;
+  font-family: 'Work Sans', sans-serif;
+}
+
+#final-text {
+  color: #333999;
+  font-family: 'Cardo', serif;
 }

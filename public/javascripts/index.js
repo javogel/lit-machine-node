@@ -13,7 +13,8 @@ $(function() {
   });
 
   $( "#keep" ).click(function() {
-    var text = $("#proposed-text").html();
+    var text = " " + $("#proposed-text").html();
+    $("#proposed-text").html("")
     $("#final-text").append(text);
   });
 
