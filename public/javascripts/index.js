@@ -7,9 +7,16 @@ $(function() {
       type: "GET",
       url: "/get-lines/" + author,
       success: function(data){
-         $("#text").append($("<h2></h2>").text(data));
+        $("#proposed-text").html(data);
       }
       });
   });
+
+  $( "#keep" ).click(function() {
+    var text = $("#proposed-text").html();
+    $("#final-text").append(text);
+  });
+
+
 
 });

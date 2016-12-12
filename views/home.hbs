@@ -1,18 +1,39 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid nav-center">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        {{!-- <img alt="Brand" src="..."> --}}
+      </a>
+    </div>
 
-  <div class="control-panel">
 
-    <ul>
-      <li id="invoke"><a href="#">Invoke Line</a></li>
-      <li>
-        <select id="author-select">
+    <form class="navbar-form" role="search">
+      <div class="form-group">
+
+
+        <select id="author-select" class="selectpicker" data-style="btn-primary">
           <option value="kafka">Kafka</option>
           <option value="whitman">Whitman</option>
           <option value="trump">Trump</option>
           <option value="meditations">Marcus Aurelius</option>
         </select>
-      </li>
-    </ul>
+      </div>
+      <button type="submit" id="invoke" class="btn btn-default">Invoke Line</button>
+      <button type="submit" id="keep" class="btn btn-default">Keep Line</button>
+    </form>
   </div>
-  <div id="text">
-    <h2>{{phrase}}<h2>
+</nav>
+
+
+
+
+
+
+  <div class="container">
+    <div class="row"  id="text">
+      <h3 id=final-text></h3>
+      <h1 id=proposed-text></h1>
+    </div>
+
+    {{!-- <p>{{phrase}}</p> --}}
   </div>

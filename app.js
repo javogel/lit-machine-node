@@ -80,6 +80,5 @@ app.listen(app.get('port'), function(err) {
   if (err) {
     return console.log('something bad happened', err)
   }
-
   console.log("Node app is running at:" + app.get('port'))
 })
