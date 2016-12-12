@@ -14,7 +14,7 @@ $(function() {
 
   $( "#keep" ).click(function() {
     var text = " " + $("#proposed-text").html();
-    $("#proposed-text").html("")
+    // $("#proposed-text").html("")
     $("#final-text").append(text);
   });
 
